@@ -33,8 +33,8 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
     event.preventDefault();
 
     if (
-      !newMovie.title ||
-      !newMovie.imdbId ||
+      !newMovie.title.trim() ||
+      !newMovie.imdbId.trim() ||
       !urlPattern.test(newMovie.imdbUrl) ||
       !urlPattern.test(newMovie.imgUrl)
     ) {
@@ -77,8 +77,8 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
             data-cy="submit-button"
             className="button is-link"
             disabled={
-              !newMovie.title ||
-              !newMovie.imdbId ||
+              !newMovie.title.trim() ||
+              !newMovie.imdbId.trim() ||
               !urlPattern.test(newMovie.imdbUrl) ||
               !urlPattern.test(newMovie.imgUrl)
             }
